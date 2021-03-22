@@ -8,9 +8,8 @@ public class Kisi {
     private String ad;
     private int dogumYili;
 
-    public Kisi(){
-
-    }
+    public Kisi(){}
+    
     public Kisi(String KimlikNo,String Ad,int DogumYili,int Id){
         kimlikNo = KimlikNo;
         ad = Ad;
