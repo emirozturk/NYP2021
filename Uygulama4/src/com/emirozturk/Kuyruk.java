@@ -4,7 +4,7 @@ public class Kuyruk {
     private int[] dizi;
     private int elemanSayisi;
     public Kuyruk(){
-        dizi = new int[10];
+        dizi = new int[10000000];
         elemanSayisi = 0;
     }
     //0 0 0 0 0 0 0 0 0 0
