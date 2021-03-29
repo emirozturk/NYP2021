@@ -1,37 +1,22 @@
 package com.emirozturk;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Kuyruk {
-    private int[] dizi;
-    private int elemanSayisi;
+    List<Integer> liste;
     public Kuyruk(){
-        dizi = new int[10000000];
-        elemanSayisi = 0;
+        liste=new ArrayList<>();
     }
-    //0 0 0 0 0 0 0 0 0 0
-    //^
-    //5 0 0 0 0 0 0 0 0 0
-    //  ^
-    //5 8 0 0 0 0 0 0 0 0
-    //    ^
     public boolean ekle(int yeniEleman){
-        if(elemanSayisi<10){
-            dizi[elemanSayisi]=yeniEleman;
-            elemanSayisi++;
-            return true;
-        }
-        return false;
+        liste.add(yeniEleman);
+        return true;
     }
-    //5 8 0 0 0 0 0 0 0 0
-    //    ^
-    //8 0 0 0 0 0 0 0 0 0
-    //  ^
     public int sil(){
-        if(elemanSayisi>0){
-            int degisken = dizi[0];
-            for(int i=1;i<elemanSayisi;i++)
-                dizi[i-1]=dizi[i];
-            elemanSayisi--;
-            return degisken;
+        if(liste.size()>0) {
+            int deger = liste.get(0);
+            liste.remove(liste.get(0));
+            return deger;
         }
         return -1;
     }
