@@ -21,10 +21,9 @@ public class CodeList {
     }
 
     public String toString() {
-        String degisken = "";
-        for(int i=0;i<codes.size();i++){
-            degisken += codes.get(i).toString()+"\n";
-        }
-        return degisken;
+        StringBuilder degisken = new StringBuilder();
+        for(var eleman:codes)
+            degisken.append(eleman.toString()).append("\n");
+        return degisken.toString();
     }
 }
