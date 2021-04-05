@@ -7,11 +7,14 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 
-enum Type{Binary,Text}
 public class CodeList {
     List<Integer> codes;
-    public CodeList(String dosyaYolu,Type tur) throws IOException {
-        codes = new ArrayList<>();
+    private CodeList(List<Integer> liste){
+        codes = liste;
+    }
+    CodeList fromBinary(String dosyaYolu){
+        return null;
+        /*Haftaya devam edilecek
         if(tur == Type.Binary){
             //BU KISMIN BİLİNMESİNE GEREK YOK
             var bytes = Files.readAllBytes(Path.of(dosyaYolu));
@@ -22,15 +25,15 @@ public class CodeList {
             for(var eleman:dizi)
                 codes.add(eleman);
         }
-        else if(tur == Type.Text){
-            var satirlar = Files.readAllLines(Path.of(dosyaYolu));
-            for(var satir:satirlar){
-                int deger = Integer.parseInt(satir);
-                codes.add(deger);
-            }
-        }
+        */
     }
-
+    static CodeList fromText(String dosyaYolu) throws IOException {
+         var satirlar = Files.readAllLines(Path.of(dosyaYolu));
+         List<Integer> liste = new ArrayList<>();
+            for(var satir:satirlar)
+                liste.add(Integer.parseInt(satir));
+        return new CodeList(liste);
+    }
     public String toString() {
         StringBuilder degisken = new StringBuilder();
         for(var eleman:codes)
