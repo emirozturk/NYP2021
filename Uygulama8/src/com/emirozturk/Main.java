@@ -1,4 +1,8 @@
 package com.emirozturk;
+
+import java.util.ArrayList;
+import java.util.List;
+
 /*
 //Aynısı statik sınıflar için de yapılabilir
 class Islem{
@@ -35,9 +39,24 @@ class AltSinif extends UstSinif{
     }
 }
  */
+class Liste{
+    private List<Integer> elemanlar;
+    Liste(int eleman1,int eleman2,int eleman3){
+        elemanlar = new ArrayList<>();
+        elemanlar.add(eleman1);
+        elemanlar.add(eleman2);
+        elemanlar.add(eleman3);
+    }
+    int topla(){
+        int toplam=0;
+        for(int i=0;i<elemanlar.size();i++)
+            toplam+=elemanlar.get(i);
+        return toplam;
+    }
+}
 class Main{
     public static void main(String[] args) {
-        var degisken = new AltSinif();
-        System.out.println(degisken.maksimum(932,2345));
+        var liste = new Liste(345,234,74);
+        System.out.println(liste.topla());
     }
 }
