@@ -41,11 +41,10 @@ class AltSinif extends UstSinif{
  */
 class Liste{
     private List<Integer> elemanlar;
-    Liste(int eleman1,int eleman2,int eleman3){
+    Liste(int ... parametreler){
         elemanlar = new ArrayList<>();
-        elemanlar.add(eleman1);
-        elemanlar.add(eleman2);
-        elemanlar.add(eleman3);
+        for(var parametre:parametreler)
+            elemanlar.add(parametre);
     }
     int topla(){
         int toplam=0;
@@ -53,10 +52,13 @@ class Liste{
             toplam+=elemanlar.get(i);
         return toplam;
     }
+    float topla(){
+
+    }
 }
 class Main{
     public static void main(String[] args) {
-        var liste = new Liste(345,234,74);
+        var liste = new Liste(1.2,7.3,654.2);
         System.out.println(liste.topla());
     }
 }
