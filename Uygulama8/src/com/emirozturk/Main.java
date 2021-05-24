@@ -1,6 +1,7 @@
 package com.emirozturk;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /*
@@ -39,26 +40,20 @@ class AltSinif extends UstSinif{
     }
 }
  */
-class Liste{
-    private List<Integer> elemanlar;
-    Liste(int ... parametreler){
+class Liste<T>{
+    private List<T> elemanlar;
+    @SafeVarargs
+    Liste(T ... parametreler){
         elemanlar = new ArrayList<>();
-        for(var parametre:parametreler)
-            elemanlar.add(parametre);
+        Collections.addAll(elemanlar, parametreler);
     }
-    int topla(){
-        int toplam=0;
-        for(int i=0;i<elemanlar.size();i++)
-            toplam+=elemanlar.get(i);
-        return toplam;
-    }
-    float topla(){
 
-    }
 }
 class Main{
     public static void main(String[] args) {
-        var liste = new Liste(1.2,7.3,654.2);
+        var liste = new Liste<Double>(1.2,7.3,654.2,33.6);
+        var ikinciListe = new Liste<Integer>(123,45,67,68,3,34,2,34,23,7,5,64);
+        var ucuncuListe = new Liste<String>("asd","deneme","değer","aaaa");
         System.out.println(liste.topla());
     }
 }
