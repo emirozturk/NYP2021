@@ -47,13 +47,17 @@ class Liste<T>{
         elemanlar = new ArrayList<>();
         Collections.addAll(elemanlar, parametreler);
     }
-
+    T ilkEleman(){
+        return elemanlar.get(0);
+    }
 }
 class Main{
     public static void main(String[] args) {
         var liste = new Liste<Double>(1.2,7.3,654.2,33.6);
         var ikinciListe = new Liste<Integer>(123,45,67,68,3,34,2,34,23,7,5,64);
         var ucuncuListe = new Liste<String>("asd","deneme","değer","aaaa");
-        System.out.println(liste.topla());
+        System.out.println(liste.ilkEleman());
+        System.out.println(ikinciListe.ilkEleman());
+        System.out.println(ucuncuListe.ilkEleman());
     }
 }
