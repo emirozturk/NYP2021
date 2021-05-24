@@ -3,6 +3,7 @@ package com.emirozturk;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Random;
 
 /*
 //Aynısı statik sınıflar için de yapılabilir
@@ -50,14 +51,45 @@ class Liste<T>{
     T ilkEleman(){
         return elemanlar.get(0);
     }
+    T rastgeleElemanAl(){
+        int index = new Random().nextInt(elemanlar.size());
+        return elemanlar.get(index);
+    }
+    //SORUNLU
+    /*
+    double topla(){
+        double toplam =0;
+        for(var eleman:elemanlar){
+            if(eleman instanceof Double)
+                toplam += (double)eleman;
+            else if(eleman instanceof Integer)
+                toplam += (int)eleman;
+            else
+                toplam = -1;
+        }
+        return toplam;
+    }
+     */
+    //SORUNLU
+}
+class KendiSinifim{
+
 }
 class Main{
     public static void main(String[] args) {
         var liste = new Liste<Double>(1.2,7.3,654.2,33.6);
         var ikinciListe = new Liste<Integer>(123,45,67,68,3,34,2,34,23,7,5,64);
         var ucuncuListe = new Liste<String>("asd","deneme","değer","aaaa");
+        var dorduncuListe = new Liste<KendiSinifim>(new KendiSinifim(),new KendiSinifim());
         System.out.println(liste.ilkEleman());
         System.out.println(ikinciListe.ilkEleman());
         System.out.println(ucuncuListe.ilkEleman());
+        System.out.println(liste.rastgeleElemanAl());
+        /*
+        System.out.println(liste.topla());
+        System.out.println(ikinciListe.topla());
+        System.out.println(ucuncuListe.topla());
+        System.out.println(dorduncuListe.topla());
+        */
     }
 }
