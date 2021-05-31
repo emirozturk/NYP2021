@@ -1,28 +1,39 @@
 import java.awt.*;
-
-abstract class Sekil{
+interface Arayuz{
+    double alanHesapla();
+    void cerceveRengiBelirle();
+}
+abstract class Sekil implements Arayuz{
     private int kenarKalinligi;
     private Color arkaplanRengi;
     private Color cerceveRengi;
     public Color getCerceveRengi(){
         return cerceveRengi;
     }
-    double alanHesapla(){
+    public double alanHesapla(){
         System.out.println("Dortgen Alanı hesabı");
         return 0;
     }
+
 }
 class Dortgen extends Sekil{
+    @Override
+    public void cerceveRengiBelirle() {
 
+    }
 }
 class Kare extends Dortgen{
 
 }
-class Daire extends Sekil{
+class Daire extends Sekil {
     @Override
-    public double alanHesapla(){
-        System.out.println("Daire Alanı hesabı");
-        return 0.0;
+    public double alanHesapla() {
+        return super.alanHesapla();
+    }
+
+    @Override
+    public void cerceveRengiBelirle() {
+
     }
 }
 public class Main {
